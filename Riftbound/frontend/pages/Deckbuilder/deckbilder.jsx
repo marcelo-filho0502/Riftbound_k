@@ -21,18 +21,23 @@ function Deckbuilder() {
   return (
     <div className="deckbuilder-page">
       <header className="pagination-controls">
-        <button onClick={() => setPage(p => p - 1)} disabled={page === 1 || loading}>Anterior</button>
-        <span>Página {page} de {data.pages}</span>
-        <button onClick={() => setPage(p => p + 1)} disabled={page === data.pages || loading}>Próximo</button>
+        <button onClick={() => setPage(p => p - 1)} disabled={page === 1 || loading}>return</button>
+        <span> {page} </span>
+        <button onClick={() => setPage(p => p + 1)} disabled={page === data.pages || loading}>next</button>
       </header>
 
       {loading ? (
-        <div className="loading">Carregando...</div>
+        <div className="loading">Loading...</div>
       ) : (
         <main className="cards-display-grid">
           {data.items.map(card => <Card key={card.id} data={card} />)}
         </main>
       )}
+       <header className="pagination-controls">
+        <button onClick={() => setPage(p => p - 1)} disabled={page === 1 || loading}>return</button>
+        <span> {page} </span>
+        <button onClick={() => setPage(p => p + 1)} disabled={page === data.pages || loading}>next</button>
+      </header>
     </div>
   );
 }

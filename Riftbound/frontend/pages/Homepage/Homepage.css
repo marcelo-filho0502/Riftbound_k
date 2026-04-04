@@ -1,0 +1,7 @@
+.image-card img {
+    width: 50%;
+    left: 100%;
+    top: 50%;
+    display: flex;
+    border-radius: 8px;    
+}

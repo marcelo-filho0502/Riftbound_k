@@ -25,17 +25,19 @@
 }
 
 .pagination-controls button, .pagination-footer button {
-  padding: 10px 20px;
+  padding: 10px 0;         /* Reduzi o padding lateral para 0, já que usaremos min-width */
+  min-width: 100px;        /* Define um tamanho fixo mínimo para ambos */
   background-color: #3b3b3b;
   color: white;
   border: 1px solid #555;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
+  text-align: center;      /* Garante que o texto fique centralizado */
 }
 
 .pagination-controls button:hover:not(:disabled) {
-  background-color: #5a5a5a;
+  background-color: #976701;
 }
 
 .pagination-controls button:disabled {

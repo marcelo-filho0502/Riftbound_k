@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Card from '../../components/Cards/cards';
+import CardModal from '../../components/CardModal/CardModal'; 
 import './deckbuilder.css';
 
 function Deckbuilder() {
   const [data, setData] = useState({ items: [], pages: 1 });
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
+  const [selectedCard, setSelectedCard] = useState(null); // Estado para o Modal
 
   useEffect(() => {
     setLoading(true);
@@ -14,7 +16,7 @@ function Deckbuilder() {
       .then(json => {
         setData(json);
         setLoading(false);
-        window.scrollTo(0, 0); // Volta ao topo ao mudar de página
+        window.scrollTo(0, 0);
       });
   }, [page]);
 
@@ -30,14 +32,24 @@ function Deckbuilder() {
         <div className="loading">Loading...</div>
       ) : (
         <main className="cards-display-grid">
-          {data.items.map(card => <Card key={card.id} data={card} />)}
+          {data.items.map(card => (
+            <div key={card.id} onClick={() => setSelectedCard(card)} style={{cursor: 'pointer'}}>
+              <Card data={card} />
+            </div>
+          ))}
         </main>
       )}
-       <header className="pagination-controls">
+
+      <header className="pagination-controls">
         <button onClick={() => setPage(p => p - 1)} disabled={page === 1 || loading}>return</button>
         <span> {page} </span>
         <button onClick={() => setPage(p => p + 1)} disabled={page === data.pages || loading}>next</button>
       </header>
+
+      {/* Renderiza o modal se houver uma carta selecionada */}
+      {selectedCard && (
+        <CardModal card={selectedCard} onClose={() => setSelectedCard(null)} />
+      )}
     </div>
   );
 }

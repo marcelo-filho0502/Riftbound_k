@@ -1,0 +1,18 @@
+.card-item {
+  width: 200px; /* Controle o tamanho da carta aqui */
+  transition: transform 0.2s ease-in-out;
+}
+
+.card-image {
+  width: 100%;    /* Faz a imagem ocupar os 200px do container acima */
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  display: block;
+}
+
+/* Efeito visual legal para um deck builder */
+.card-item:hover {
+  transform: scale(1.05);
+  z-index: 10;
+}

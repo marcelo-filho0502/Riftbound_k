@@ -1,0 +1,64 @@
+.modal-container-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1001;
+  background: #1e1e1e;
+  border: 1px solid #976701;
+  border-radius: 15px;
+  padding: 40px; /* Espaço interno para o layout respirar */
+  max-width: 950px;
+  width: 90%;
+}
+
+.modal-content-layout {
+  display: flex;
+  flex-direction: row; /* Coloca Card e Info lado a lado */
+  gap: 30px;
+  align-items: flex-start;
+}
+
+/* Tamanho da imagem dentro do modal */
+.modal-visual .card-image {
+  width: 350px;
+  height: auto;
+  border-radius: 10px;
+}
+
+.modal-info-panel {
+  flex: 1; /* Ocupa o restante do espaço */
+  color: white;
+  text-align: left;
+}
+
+.close-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #976701;
+  color: white;
+  border: 1px solid white;
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Estilos de texto e status trazidos para o CSS do Modal */
+.status-container { display: flex; gap: 10px; margin-bottom: 20px; }
+.stat { padding: 5px 10px; border-radius: 4px; font-weight: bold; background: #333; }
+.stat.energy { color: #a0c0ff; border: 1px solid #4a6fa5; }
+.stat.might { color: #ffa0a0; border: 1px solid #a54a4a; }
+.stat.power { color: #d0a0ff; border: 1px solid #7a4aa5; }
+
+.card-text-rich {
+  background: #151515;
+  padding: 15px;
+  border-radius: 8px;
+  line-height: 1.5;
+}

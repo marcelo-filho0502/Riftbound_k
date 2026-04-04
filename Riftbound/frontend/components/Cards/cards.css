@@ -1,18 +1,97 @@
+/* --- Estilos para o Card no Grid (Sem Modal) --- */
 .card-item {
-  width: 200px; /* Controle o tamanho da carta aqui */
+  width: 200px; /* Tamanho base no grid */
+  cursor: pointer;
   transition: transform 0.2s ease-in-out;
 }
 
+.card-item:hover:not(.is-modal) {
+  transform: scale(1.05);
+  z-index: 2;
+}
+
 .card-image {
-  width: 100%;    /* Faz a imagem ocupar os 200px do container acima */
+  width: 100%;
   height: auto;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   display: block;
 }
 
-/* Efeito visual legal para um deck builder */
-.card-item:hover {
-  transform: scale(1.05);
-  z-index: 10;
+/* --- Estilos para o Card QUANDO for Modal (.is-modal) --- */
+.card-item.is-modal {
+  /* ESTA É A CENTRALIZAÇÃO CLÁSSICA */
+  position: fixed;   /* Prende na tela, ignorando rolagem */
+  top: 50%;          /* Meio da tela (altura) */
+  left: 50%;         /* Meio da tela (largura) */
+  transform: translate(-50%, -50%); /* Ajusta o centro do próprio componente */
+  
+  /* LAYOUT LADO A LADO */
+  display: flex;
+  flex-direction: row; /* Imagem esquerda, dados direita */
+  gap: 30px;
+  
+  /* Tamanho do componente de detalhes */
+  max-width: 900px;
+  width: 90%;
+  background: #1e1e1e; /* Fundo interno do modal */
+  border-radius: 15px;
+  padding: 30px;
+  border: 1px solid #976701; /* Dourado do hover */
+  z-index: 1001; /* Garante que fique acima de tudo, inclusive do overlay */
+  color: white;
+  
+  /* Garante que o usuário possa fechar o modal com a tecla ESC */
+  outline: none; 
+}
+
+/* Layout específico da imagem no modal */
+.is-modal .card-image-container {
+  flex: 1; /* Ocupa metade do espaço */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.is-modal .card-image {
+  width: 350px; /* Imagem maior no modal */
+  max-width: 100%;
+  height: auto;
+}
+
+/* Layout do painel de detalhes (direito) */
+.card-details-panel {
+  flex: 1.2; /* Ocupa um pouco mais de metade */
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+/* Estilo para Status (Energy, Might, Power) */
+.status-container {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.stat {
+  padding: 5px 12px;
+  border-radius: 4px;
+  background: #333;
+  font-weight: bold;
+}
+
+.stat.energy { background: #2a3b5a; color: #a0c0ff; border: 1px solid #4a6fa5; }
+.stat.might { background: #4a2a2a; color: #ffa0a0; border: 1px solid #a54a4a; }
+.stat.power { background: #3a2a4a; color: #d0a0ff; border: 1px solid #7a4aa5; }
+
+/* Texto da Habilidade */
+.card-text-rich {
+  line-height: 1.6;
+  color: #ccc;
+  background: #151515;
+  padding: 15px;
+  border-radius: 5px;
+}
+.card-text-rich b, .card-text-rich strong {
+  color: #976701;
 }

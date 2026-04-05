@@ -1,51 +1,156 @@
-.modal-content-layout {
-  display: flex;
-  gap: 30px;
-  align-items: flex-start;
-  padding: 20px;
+/* Overlay com desfoque para dar profundidade */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 999;
 }
 
-/* Organiza os atributos em colunas */
+/* Container Principal */
+.modal-container-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(145deg, #23272e, #1a1d23);
+  border: 1px solid #444;
+  border-radius: 20px;
+  padding: 40px;
+  z-index: 1000;
+  max-width: 900px;
+  width: 90%;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+}
+
+.modal-content-layout {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+}
+
+/* --- AUMENTANDO A RESOLUÇÃO/TAMANHO DA IMAGEM --- */
+.modal-card-visual {
+  flex: 0 0 auto;
+}
+
+/* Alvo direto na classe da imagem que vem do componente Card */
+.modal-card-visual .card-image {
+  width: 350px; /* Tamanho maior para o modal */
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transition: transform 0.3s ease;
+}
+
+/* Informações */
+.modal-card-info {
+  flex: 0 1 auto; /* Altera de 1 para 0 para não forçar o crescimento */
+  max-width: 400px; /* Ajuste esse valor conforme sua preferência */
+  color: #e0e0e0;
+  margin-left: 200px;
+}
+
+.modal-card-title {
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  border-bottom: 2px solid #ffcc00;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+/* Atributos Estilizados */
 .modal-attributes {
   display: flex;
-  gap: 15px;
-  margin-bottom: 20px;
+  gap: 20px;
+  margin-bottom: 30px;
 }
 
 .attr {
-  background: #1a1a1a;
-  padding: 10px 15px;
-  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 15px;
+  border-radius: 12px;
   text-align: center;
-  border: 1px solid #444;
-  min-width: 70px;
+  min-width: 90px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .attr-label {
   display: block;
-  font-size: 0.7rem;
-  text-transform: uppercase;
+  font-size: 0.75rem;
   color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
 }
 
 .attr-value {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: #fff;
+  color: #ffcc00; /* Cor de destaque */
 }
 
+/* Texto da Habilidade */
 .modal-card-text {
-  background: rgba(0, 0, 0, 0.3);
-  padding: 15px;
-  border-radius: 8px;
-  line-height: 1.5;
-  color: #ddd;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 4px solid #ffcc00;
 }
 
 .modal-card-text h3 {
   margin-top: 0;
-  font-size: 0.9rem;
-  color: #ffd700; /* Cor dourada para o título da habilidade */
+  font-size: 1.1rem;
+  color: #ffcc00;
   text-transform: uppercase;
+  margin-bottom: 10px;
 }
 
+.modal-card-text p {
+  line-height: 1.6;
+  font-size: 1.05rem;
+  color: #ccc;
+}
+
+.flavour-text {
+  margin-top: 15px;
+  font-size: 0.9rem !important;
+  color: #888 !important;
+  border-top: 1px solid #333;
+  padding-top: 10px;
+}
+
+/* Botão Fechar */
+.close-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 30px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.close-button:hover {
+  color: #fff;
+}
+
+/* Responsividade */
+@media (max-width: 800px) {
+  .modal-content-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+  .modal-card-visual .card-image {
+    width: 250px;
+  }
+  .modal-attributes {
+    justify-content: center;
+  }
+}

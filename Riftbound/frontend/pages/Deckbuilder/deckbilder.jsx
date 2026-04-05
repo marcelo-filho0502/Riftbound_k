@@ -7,7 +7,7 @@ function Deckbuilder() {
   const [data, setData] = useState({ items: [], pages: 1 });
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
-  const [selectedCard, setSelectedCard] = useState(null); // Estado para o Modal
+  const [selectedCard, setSelectedCard] = useState(null); 
 
   useEffect(() => {
     setLoading(true);
@@ -46,7 +46,6 @@ function Deckbuilder() {
         <button onClick={() => setPage(p => p + 1)} disabled={page === data.pages || loading}>next</button>
       </header>
 
-      {/* Renderiza o modal se houver uma carta selecionada */}
       {selectedCard && (
         <CardModal card={selectedCard} onClose={() => setSelectedCard(null)} />
       )}

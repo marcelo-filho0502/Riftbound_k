@@ -1,64 +1,58 @@
-.modal-container-wrapper {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1001;
-  background: #1e1e1e;
-  border: 1px solid #976701;
-  border-radius: 15px;
-  padding: 40px; /* Espaço interno para o layout respirar */
-  max-width: 950px;
-  width: 90%;
-}
-
 .modal-content-layout {
   display: flex;
-  flex-direction: row; /* Coloca Card e Info lado a lado */
   gap: 30px;
   align-items: flex-start;
+  padding: 20px;
 }
 
-/* Tamanho da imagem dentro do modal */
-.modal-visual .card-image {
-  width: 350px;
-  height: auto;
-  border-radius: 10px;
-}
-
-.modal-info-panel {
-  flex: 1; /* Ocupa o restante do espaço */
-  color: white;
-  text-align: left;
-}
-
-.close-button {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  background: #976701;
-  color: white;
-  border: 1px solid white;
-  width: 32px;
-  height: 32px;
-  border-radius: 4px;
-  cursor: pointer;
-  z-index: 1010;
+/* Organiza os atributos em colunas */
+.modal-attributes {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
 }
 
-/* Estilos de texto e status trazidos para o CSS do Modal */
-.status-container { display: flex; gap: 10px; margin-bottom: 20px; }
-.stat { padding: 5px 10px; border-radius: 4px; font-weight: bold; background: #333; }
-.stat.energy { color: #a0c0ff; border: 1px solid #4a6fa5; }
-.stat.might { color: #ffa0a0; border: 1px solid #a54a4a; }
-.stat.power { color: #d0a0ff; border: 1px solid #7a4aa5; }
+.attr {
+  background: #1a1a1a;
+  padding: 10px 15px;
+  border-radius: 8px;
+  text-align: center;
+  border: 1px solid #444;
+  min-width: 70px;
+}
 
-.card-text-rich {
-  background: #151515;
+.attr-label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #aaa;
+}
+
+.attr-value {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+}
+
+.modal-card-text {
+  background: rgba(0, 0, 0, 0.3);
   padding: 15px;
   border-radius: 8px;
   line-height: 1.5;
+  color: #ddd;
+}
+
+.modal-card-text h3 {
+  margin-top: 0;
+  font-size: 0.9rem;
+  color: #ffd700; /* Cor dourada para o título da habilidade */
+  text-transform: uppercase;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+  .modal-content-layout {
+    flex-direction: column;
+    align-items: center;
+  }
 }
